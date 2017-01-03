@@ -1,0 +1,21 @@
+#!/bin/sh
+#These commands set up the Grid Environment for your job:
+#PBS -N /Users/jshigh/Development/fileio/write_murgas_sub/v1
+#PBS -jeo
+##PBS -e error
+##PBS -o output
+#PBS -l pmem=2GB,nodes=1:ppn=1,walltime=302:00:00
+#########
+
+# runs job from the current working directory
+RUNDIR=$PBS_O_WORKDIR
+export RUNDIR
+cd $RUNDIR
+
+#print the time and date
+date
+
+./dynamics ./test.bind
+
+#print the time and date again
+date
